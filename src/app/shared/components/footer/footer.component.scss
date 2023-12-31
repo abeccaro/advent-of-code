@@ -1,0 +1,38 @@
+:host {
+    display: block;
+    background-color: var(--color-background-lighter);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 auto;
+    padding: 32px 0 16px;
+    max-width: 1080px;
+
+    .title {
+        font-size: 24px;
+    }
+
+    .navigation {
+        margin: 16px 0;
+    }
+
+    .link-icons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        font-size: 20px;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    .copyright {
+        font-size: 14px;
+        text-align: center;
+    }
+}

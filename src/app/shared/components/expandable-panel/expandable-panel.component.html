@@ -1,0 +1,7 @@
+<button class="panel-toggle" [ngClass]="{ open }" (click)="toggle()">
+    {{ title }}
+    <span class="aoc-icon toggle-icon">chevron-right</span>
+</button>
+<div class="panel-contents" #contentPanel [ngClass]="{ animated }">
+    <ng-content></ng-content>
+</div>

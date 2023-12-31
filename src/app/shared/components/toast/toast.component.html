@@ -1,0 +1,3 @@
+<div class="message" [ngClass]="{ hidden: !message }" (transitionend)="onTransitionEnd($event)">
+    {{ internalMessage }}
+</div>

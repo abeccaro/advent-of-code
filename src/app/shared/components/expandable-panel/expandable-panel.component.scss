@@ -1,0 +1,41 @@
+:host {
+    display: block;
+}
+
+.panel-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    background-color: var(--color-background-lighter);
+    padding: 16px;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+
+    &:hover {
+        background-color: var(--color-background-lightest);
+    }
+
+    .toggle-icon {
+        rotate: 0deg;
+        transition: rotate 0.1s ease-in-out;
+    }
+
+    &.open {
+        .toggle-icon {
+            rotate: 90deg;
+        }
+    }
+}
+
+.panel-contents {
+    max-height: 0;
+    overflow: hidden;
+
+    &.animated {
+        transition: max-height 0.2s ease-in-out;
+    }
+}

@@ -1,0 +1,14 @@
+@for (year of years; track year) {
+    <aoc-expandable-panel [title]="year" [open]="$first">
+        <div class="problem-list">
+            @for (problem of problems[year]; track problem.day) {
+                <a class="problem-panel" [routerLink]="['/problem', year, problem.day]"> Day {{ problem.day }} - {{ problem.name }} </a>
+            }
+        </div>
+    </aoc-expandable-panel>
+} @empty {
+    <div class="no-problems">
+        <span class="aoc-icon">empty-folder</span>
+        <span class="subtext">There are no problems here</span>
+    </div>
+}

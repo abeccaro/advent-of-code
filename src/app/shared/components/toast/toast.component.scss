@@ -1,0 +1,18 @@
+:host {
+    display: block;
+    position: fixed;
+    right: 0;
+    bottom: 64px;
+}
+
+.message {
+    transform: translateX(0%);
+    transition: transform ease-out 0.3s;
+    border: 1px solid var(--color-background-lightest);
+    background-color: var(--color-background-lighter);
+    padding: 16px 64px 16px 16px;
+
+    &.hidden {
+        transform: translateX(100%);
+    }
+}

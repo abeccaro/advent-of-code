@@ -1,0 +1,25 @@
+@if (problem) {
+    <div class="problem-title">
+        <h1>{{ problem.name }}</h1>
+    </div>
+
+    <textarea [formControl]="input" rows="10" placeholder="Insert your input here"></textarea>
+    <div class="button-group">
+        <button class="secondary-button" [disabled]="!input.value" (click)="reset()" type="reset">Clear</button>
+        <button class="primary-button" [disabled]="!input.value" (click)="solve()" type="submit">Calculate</button>
+    </div>
+
+    @if (output1.value || output1.value === 0) {
+        <h2>Solution</h2>
+        <input [formControl]="output1" [readonly]="true" type="text" />
+        @if (output2.value || output2.value === 0) {
+            <h2>Part 2</h2>
+            <input [formControl]="output2" [readonly]="true" type="text" />
+        }
+    }
+} @else {
+    <div class="not-found">
+        <span class="aoc-icon">empty-folder</span>
+        <span class="subtext">Problem not found. Return to <a routerLink="problems">the problem list</a>.</span>
+    </div>
+}
