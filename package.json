@@ -4,7 +4,7 @@
     "scripts": {
         "start": "ng serve",
         "build": "ng build",
-        "build-docs": "npm run build -- --base-href https://abeccaro.github.io/advent-of-code/ && move dist\\browser docs",
+        "build-docs": "npm run build -- --base-href https://abeccaro.github.io/advent-of-code/ && rmdir docs /s /q && move dist\\browser docs",
         "prepare": "husky install"
     },
     "private": true,

@@ -16,6 +16,7 @@ import { solver201515 } from '../../solvers/2015/15';
 import { solver201516 } from '../../solvers/2015/16';
 import { solver201517 } from '../../solvers/2015/17';
 import { solver201518 } from '../../solvers/2015/18';
+import { solver201519 } from '../../solvers/2015/19';
 import { Problem } from '../models/problem';
 
 export const problems: Record<string, Problem[]> = {
@@ -109,6 +110,11 @@ export const problems: Record<string, Problem[]> = {
             day: 18,
             name: 'Like a GIF For Your Yard',
             solver: solver201518,
+        },
+        {
+            day: 19,
+            name: 'Medicine for Rudolph',
+            solver: solver201519,
         },
     ],
 };
