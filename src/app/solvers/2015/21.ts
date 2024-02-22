@@ -74,15 +74,12 @@ function combineEquipment(): Item[][] {
     return equipmentCombinations;
 }
 
-function playerWins(player: Character, boss: Character): boolean {
-    while (player.hp >= 0) {
-        boss.hp -= Math.max(1, player.damage - boss.armor);
-        if (boss.hp < 0) {
-            return true;
-        }
-        player.hp -= Math.max(1, boss.damage - player.armor);
-    }
-    return false;
+function playerWins(player: Character, enemy: Character): boolean {
+    const attacksToKillBoss = Math.ceil(enemy.hp / Math.max(1, player.damage - enemy.armor));
+    // as the player and the enemy alternate turns with player going first the enemy will attack the same number of
+    // times as the player minus one
+    const damageTaken = (attacksToKillBoss - 1) * Math.max(1, enemy.damage - player.armor);
+    return damageTaken < player.hp;
 }
 
 function optimalCost(enemy: Character, equipmentChoices: Item[][], playerWin: boolean, optimization: 'min' | 'max'): number {
@@ -99,7 +96,7 @@ function optimalCost(enemy: Character, equipmentChoices: Item[][], playerWin: bo
             armor: equipChoice.reduce((armor, item) => armor + item.armor, 0),
         };
 
-        if (playerWins(player, { ...enemy }) === playerWin) {
+        if (playerWins(player, enemy) === playerWin) {
             optimalCost = totalCost;
         }
     }
