@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input as RouterInput, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, Input as RouterInput } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { problems } from '../shared/data/problems';
@@ -18,9 +18,9 @@ export class ProblemComponent implements OnInit {
 
     problem?: Problem;
 
-    input = new FormControl();
-    output1 = new FormControl();
-    output2 = new FormControl();
+    input = new FormControl<string>('', { nonNullable: true });
+    output1 = new FormControl<string | number>('', { nonNullable: true });
+    output2 = new FormControl<string | number>('', { nonNullable: true });
 
     ngOnInit() {
         const day = parseInt(this.problemDay, 10);
@@ -34,7 +34,11 @@ export class ProblemComponent implements OnInit {
     }
 
     solve(): void {
-        this.output1.setValue(this.problem?.solver?.part1?.(this.input.value.trim()));
-        this.output2.setValue(this.problem?.solver?.part2?.(this.input.value.trim()));
+        console.time('1');
+        this.output1.setValue(this.problem?.solver?.part1?.(this.input.value.trim()) ?? '');
+        console.timeEnd('1');
+        console.time('2');
+        this.output2.setValue(this.problem?.solver?.part2?.(this.input.value.trim()) ?? '');
+        console.timeEnd('2');
     }
 }
