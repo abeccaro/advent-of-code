@@ -19,6 +19,7 @@ import { solver201518 } from '../../solvers/2015/18';
 import { solver201519 } from '../../solvers/2015/19';
 import { solver201520 } from '../../solvers/2015/20';
 import { solver201521 } from '../../solvers/2015/21';
+import { solver201522 } from '../../solvers/2015/22';
 import { Problem } from '../models/problem';
 
 export const problems: Record<string, Problem[]> = {
@@ -127,6 +128,11 @@ export const problems: Record<string, Problem[]> = {
             day: 21,
             name: 'RPG Simulator 20XX',
             solver: solver201521,
+        },
+        {
+            day: 22,
+            name: 'Wizard Simulator 20XX',
+            solver: solver201522,
         },
     ],
 };
