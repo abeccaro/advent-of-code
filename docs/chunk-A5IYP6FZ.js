@@ -1,0 +1,1 @@
+import"./chunk-B2MOJN65.js";var f=()=>{function i(t,n=1/0){let o=Array(Math.ceil(t)+1).fill(0);for(let r=1;r<=t;r++){for(let e=r,a=1;e<=t&&a<=n;e+=r,a++)o[e]+=r;if(o[r]>t)return r}return-1}function s(t){let n=parseInt(t,10);return i(n/10)}function u(t){let n=parseInt(t,10);return i(n/11,50)}};export{f as solver};

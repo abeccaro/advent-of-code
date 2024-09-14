@@ -5,17 +5,21 @@
 
     <textarea [formControl]="input" rows="10" placeholder="Insert your input here"></textarea>
     <div class="button-group">
-        <button class="secondary-button" [disabled]="!input.value" (click)="reset()" type="reset">Clear</button>
-        <button class="primary-button" [disabled]="!input.value" (click)="solve()" type="submit">Calculate</button>
+        <button class="secondary-button" [disabled]="!input.value || calculating()" (click)="reset()" type="reset">Clear</button>
+        <button class="primary-button" [disabled]="!input.value || calculating()" (click)="solve()" type="submit">Calculate</button>
     </div>
 
-    @if (output1.value || output1.value === 0) {
-        <h2>Solution</h2>
+    @if (output1.value !== '') {
+        <h2>Part 1 solution</h2>
         <input [formControl]="output1" [readonly]="true" type="text" />
-        @if (output2.value || output2.value === 0) {
-            <h2>Part 2</h2>
+        @if (output2.value !== '') {
+            <h2>Part 2 solution</h2>
             <input [formControl]="output2" [readonly]="true" type="text" />
         }
+    }
+
+    @if (calculating()) {
+        <div class="calculating-spinner"></div>
     }
 } @else {
     <div class="not-found">

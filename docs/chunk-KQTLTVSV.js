@@ -1,0 +1,1 @@
+import"./chunk-B2MOJN65.js";var a=()=>{function e(t,o){for(let n=0;n<o;n++)t=c(t);return t.length}function c(t){let o=t[0],n=0,r="";for(let l of t)l!==o&&(r+=n+o,n=0),o=l,n++;return r+=n+o,r}function f(t){return e(t,40)}function u(t){return e(t,50)}};export{a as solver};
