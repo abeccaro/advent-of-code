@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function firstNumberWithDivisorSumGreaterThan(x, maxIterations = Infinity) {
         const values = Array(Math.ceil(x) + 1).fill(0);
 
@@ -23,4 +25,6 @@ export const solver = () => {
         const target = parseInt(input, 10);
         return firstNumberWithDivisorSumGreaterThan(target / 11, 50);
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

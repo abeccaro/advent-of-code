@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function part1(input) {
         const rows = input.split('\n');
 
@@ -9,11 +11,7 @@ export const solver = () => {
     }
 
     function part2(input) {
-        const rows = input.split('\n');
-
-        const codeLength = rows.join('').length;
-        const encodedLength = rows.map(s => `"${s.replaceAll(/([\\"])/g, '##')}"`).join('').length;
-
-        return encodedLength - codeLength;
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

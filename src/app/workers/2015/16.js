@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     const target = {
         children: 3,
         cats: 7,
@@ -51,4 +53,6 @@ export const solver = () => {
     function part2(input) {
         return parse(input).findIndex(matchesWithInequalities) + 1;
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

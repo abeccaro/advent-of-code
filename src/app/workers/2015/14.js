@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function parse(input) {
         return input.split('\n').map(row => {
             const tokens = row.split(' ');
@@ -44,4 +46,6 @@ export const solver = () => {
     function part2(input) {
         return Math.max(...calculatePoints(parse(input), 2503));
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

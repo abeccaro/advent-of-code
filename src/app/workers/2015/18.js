@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function step(grid, gridSize) {
         const res = JSON.parse(JSON.stringify(grid)); // deep copy
 
@@ -55,4 +57,6 @@ export const solver = () => {
         }
         return countLightsOn(grid);
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function lookAndSayLength(input, iterations) {
         for (let i = 0; i < iterations; i++) {
             input = lookAndSay(input);
@@ -31,4 +33,6 @@ export const solver = () => {
     function part2(input) {
         return lookAndSayLength(input, 50);
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

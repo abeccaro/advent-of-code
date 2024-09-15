@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function containersCombinations(selected, remaining, liters) {
         if (liters < 0) {
             return [];
@@ -39,4 +41,6 @@ export const solver = () => {
         const solutions = containersCombinations([], containers, 150);
         return countSolutionsWithMinLength(solutions);
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

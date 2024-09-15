@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function createLightsGrid(value) {
         const lights = [];
         for (let row = 0; row < 1000; row++) {
@@ -61,4 +63,6 @@ export const solver = () => {
         lights.forEach(row => row.forEach(light => (brightness += light)));
         return brightness;
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

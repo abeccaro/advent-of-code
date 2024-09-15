@@ -43,23 +43,21 @@ export class ProblemComponent implements OnDestroy, OnInit {
     }
 
     async solve(): Promise<void> {
+        this.output1.reset();
+        this.output2.reset();
+
         if (!this.worker) {
             await this.createAndListenToWorker();
         }
 
-        this.output1.reset();
-        this.output2.reset();
         this.calculating.set(true);
         this.worker?.postMessage(this.input.value.trim());
     }
 
     private async createAndListenToWorker(): Promise<void> {
-        // @ts-expect-error: The function loaded doesn't have a declaration file but is only used as text for a web worker, so it needs to be defined in vanilla js
-        const { messageManager } = await import('../workers/message-manager.js');
         const { solver } = await import(`../workers/${this.problemYear}/${this.problemDay.padStart(2, '0')}.js`);
-        const functionBody = [this.extractFunctionString(solver), this.extractFunctionString(messageManager)].join('\n');
 
-        this.worker = new Worker(URL.createObjectURL(new Blob([functionBody], { type: 'text/javascript' })));
+        this.worker = new Worker(URL.createObjectURL(new Blob([this.extractFunctionString(solver)], { type: 'text/javascript' })));
 
         this.worker.onmessage = data => {
             if (data.data.part1 !== undefined) {

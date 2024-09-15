@@ -1,4 +1,5 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
     importScripts(`${self.location.origin}/workers/utilities.js`);
 
     function parse(input) {
@@ -54,4 +55,6 @@ export const solver = () => {
 
         return maxHappiness(happinessValues);
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

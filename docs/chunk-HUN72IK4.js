@@ -1,1 +1,0 @@
-import"./chunk-B2MOJN65.js";var m=()=>{importScripts("https://cdn.jsdelivr.net/npm/md5-jkmyers@0.0.1/md5.min.js");function r(t,i){let n=1;for(;!md5(`${t}${n}`).startsWith(i);)n++;return n}function e(t){return r(t,"00000")}function s(t){return r(t,"000000")}};export{m as solver};

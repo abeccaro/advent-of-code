@@ -7,6 +7,8 @@
  */
 
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function parse(input) {
         const map = {};
         input.split('\n').forEach(row => {
@@ -93,4 +95,6 @@ export const solver = () => {
         };
         return getValue(actionMap, 'a');
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

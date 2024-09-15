@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function createInitialStatus(input) {
         const [bossHp, bossDamage] = input.split('\n').map(row => parseInt(row.split(':')[1], 10));
         return {
@@ -118,4 +120,6 @@ export const solver = () => {
     function part2(input) {
         return getOptimalManaSpent(createInitialStatus(input), true);
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

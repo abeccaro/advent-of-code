@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function solveNSantas(input, santas) {
         const visited = new Set();
 
@@ -47,4 +49,6 @@ export const solver = () => {
     function part2(input) {
         return solveNSantas(input, 2);
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function sumNumbers(element) {
         if (element instanceof Array) {
             return element.map(sumNumbers).reduce((sum, current) => sum + current, 0);
@@ -40,4 +42,6 @@ export const solver = () => {
     function part2(input) {
         return sumNumbersWithoutRed(JSON.parse(input));
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

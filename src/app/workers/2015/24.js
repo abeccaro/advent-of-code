@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     let solutionMaxLength;
 
     function minimumFirstGroupQuantumEntanglement(packages, groups) {
@@ -47,4 +49,6 @@ export const solver = () => {
             .sort((a, b) => a - b);
         return minimumFirstGroupQuantumEntanglement(packages, 4);
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

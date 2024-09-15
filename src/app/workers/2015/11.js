@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     const aCode = 'a'.charCodeAt(0);
     const iCode = 'i'.charCodeAt(0);
     const lCode = 'l'.charCodeAt(0);
@@ -50,4 +52,6 @@ export const solver = () => {
     function part2(input) {
         return nextValidPassword(nextValidPassword(preparePassword(input)));
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

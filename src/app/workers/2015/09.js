@@ -1,4 +1,5 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
     importScripts(`${self.location.origin}/workers/utilities.js`);
 
     function parse(input) {
@@ -83,4 +84,6 @@ export const solver = () => {
 
         return Math.max(...paths.map(path => calculateCost(path, distances)));
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

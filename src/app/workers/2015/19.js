@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function parse(input) {
         const rows = input.split('\n');
 
@@ -64,4 +66,6 @@ export const solver = () => {
         const { molecule } = parse(input);
         return countMinTransformations(tokenize(molecule));
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

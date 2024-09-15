@@ -1,4 +1,5 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
     importScripts(`${self.location.origin}/workers/utilities.js`);
 
     const weapons = [
@@ -90,4 +91,6 @@ export const solver = () => {
         const equipChoices = combineEquipment();
         return optimalCost(boss, equipChoices, false, 'max');
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

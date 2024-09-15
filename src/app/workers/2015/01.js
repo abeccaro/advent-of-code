@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function part1(input) {
         let res = 0;
         for (const c of input) {
@@ -17,4 +19,6 @@ export const solver = () => {
         }
         return -1;
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };

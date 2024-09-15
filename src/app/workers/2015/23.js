@@ -1,4 +1,6 @@
 export const solver = () => {
+    importScripts(`${self.location.origin}/workers/message-manager.js`);
+
     function execute(state, commands) {
         let commandIndex = 0;
         while (commandIndex >= 0 && commandIndex < commands.length) {
@@ -44,4 +46,6 @@ export const solver = () => {
     function part2(input) {
         return execute({ a: 1, b: 0 }, input.split('\n'))['b'];
     }
+
+    this.onmessage = (evt) => calculate(part1, part2, evt.data);
 };
