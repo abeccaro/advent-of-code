@@ -1,5 +1,5 @@
 export const solver = () => {
-    importScripts(`${self.location.origin}/workers/message-manager.js`);
+    importScripts(`${self.location.origin}/advent-of-code/workers/message-manager.js`);
 
     function count(input, counter) {
         const sizes = input.split('\n').map(row => row.split('x').map(n => parseInt(n, 10)));

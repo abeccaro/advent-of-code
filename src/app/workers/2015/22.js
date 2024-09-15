@@ -1,5 +1,5 @@
 export const solver = () => {
-    importScripts(`${self.location.origin}/workers/message-manager.js`);
+    importScripts(`${self.location.origin}/advent-of-code/workers/message-manager.js`);
 
     function createInitialStatus(input) {
         const [bossHp, bossDamage] = input.split('\n').map(row => parseInt(row.split(':')[1], 10));

@@ -4,7 +4,8 @@
     "scripts": {
         "start": "ng serve",
         "build": "ng build",
-        "build-docs": "npm run build -- --base-href https://abeccaro.github.io/advent-of-code/ && (if exist docs rmdir docs /s /q) && move dist\\browser docs",
+        "build-docs": "npm run build && (if exist docs rmdir docs /s /q) && move dist\\browser docs",
+        "build-local": "npm run build -- --base-href /advent-of-code/ && (if exist docs rmdir docs /s /q) && mkdir docs && move dist\\browser docs\\advent-of-code",
         "prepare": "husky install"
     },
     "private": true,

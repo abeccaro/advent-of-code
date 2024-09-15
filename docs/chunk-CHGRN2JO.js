@@ -1,0 +1,1 @@
+import"./chunk-B2MOJN65.js";var s=()=>{importScripts(`${self.location.origin}/advent-of-code/workers/message-manager.js`);function o(e){let t=0;for(let r of e)t+=r==="("?1:-1;return t}function n(e){let t=0;for(let r=0;r<e.length;r++)if(t+=e[r]==="("?1:-1,t<0)return r+1;return-1}(void 0).onmessage=e=>calculate(o,n,e.data)};export{s as solver};

@@ -1,5 +1,5 @@
 export const solver = () => {
-    importScripts(`${self.location.origin}/workers/message-manager.js`);
+    importScripts(`${self.location.origin}/advent-of-code/workers/message-manager.js`);
 
     const aCode = 'a'.charCodeAt(0);
     const iCode = 'i'.charCodeAt(0);

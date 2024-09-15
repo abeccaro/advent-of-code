@@ -1,5 +1,5 @@
 export const solver = () => {
-    importScripts(`${self.location.origin}/workers/message-manager.js`);
+    importScripts(`${self.location.origin}/advent-of-code/workers/message-manager.js`);
 
     function containersCombinations(selected, remaining, liters) {
         if (liters < 0) {

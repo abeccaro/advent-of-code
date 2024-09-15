@@ -36,7 +36,8 @@
                         "styles": [
                             "src/styles.scss"
                         ],
-                        "scripts": []
+                        "scripts": [],
+                        "baseHref": "/advent-of-code/"
                     },
                     "configurations": {
                         "production": {
@@ -52,7 +53,8 @@
                                     "maximumError": "4kb"
                                 }
                             ],
-                            "outputHashing": "all"
+                            "outputHashing": "all",
+                            "baseHref": "https://abeccaro.github.io/advent-of-code/"
                         },
                         "development": {
                             "optimization": false,

@@ -1,1 +1,0 @@
-import"./chunk-B2MOJN65.js";var f=()=>{importScripts(`${self.location.origin}/workers/message-manager.js`);function n(t,r){for(let o=0;o<r;o++)t=l(t);return t.length}function l(t){let r=t[0],o=0,e="";for(let a of t)a!==r&&(e+=o+r,o=0),r=a,o++;return e+=o+r,e}function s(t){return n(t,40)}function c(t){return n(t,50)}(void 0).onmessage=t=>calculate(s,c,t.data)};export{f as solver};

@@ -1,5 +1,5 @@
 export const solver = () => {
-    importScripts(`${self.location.origin}/workers/message-manager.js`);
+    importScripts(`${self.location.origin}/advent-of-code/workers/message-manager.js`);
     importScripts('https://cdn.jsdelivr.net/npm/md5-jkmyers@0.0.1/md5.min.js');
 
     function findMinResultStartingWith(input, match) {
