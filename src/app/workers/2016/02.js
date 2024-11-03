@@ -19,28 +19,16 @@ export const solver = () => {
         const processInstruction = (n, char) => {
             switch (char) {
                 case 'U': {
-                    if (n > 3) {
-                        return n - 3;
-                    }
-                    return n;
+                    return n > 3 ? n - 3 : n;
                 }
                 case 'D': {
-                    if (n < 7) {
-                        return n + 3;
-                    }
-                    return n;
+                    return n < 7 ? n + 3 : n;
                 }
                 case 'L': {
-                    if (n % 3 !== 1) {
-                        return n - 1;
-                    }
-                    return n;
+                    return n % 3 !== 1 ? n - 1 : n;
                 }
                 case 'R': {
-                    if (n % 3 !== 0) {
-                        return n + 1;
-                    }
-                    return n;
+                    return n % 3 !== 0 ? n + 1 : n;
                 }
             }
         };
@@ -54,30 +42,20 @@ export const solver = () => {
                 case 'U': {
                     if (n === 3 || n === 13) {
                         return n - 2;
-                    } else if ([6, 7, 8, 10, 11, 12].includes(n)) {
-                        return n - 4;
                     }
-                    return n;
+                    return [6, 7, 8, 10, 11, 12].includes(n) ? n - 4 : n;
                 }
                 case 'D': {
                     if (n === 1 || n === 11) {
                         return n + 2;
-                    } else if ([2, 3, 4, 6, 7, 8].includes(n)) {
-                        return n + 4;
                     }
-                    return n;
+                    return [2, 3, 4, 6, 7, 8].includes(n) ? n + 4 : n;
                 }
                 case 'L': {
-                    if (![1, 2, 5, 10, 13].includes(n)) {
-                        return n - 1;
-                    }
-                    return n;
+                    return [1, 2, 5, 10, 13].includes(n) ? n : n - 1;
                 }
                 case 'R': {
-                    if (![1, 4, 9, 12, 13].includes(n)) {
-                        return n + 1;
-                    }
-                    return n;
+                    return [1, 4, 9, 12, 13].includes(n) ? n : n + 1;
                 }
             }
         };
