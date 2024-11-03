@@ -1,0 +1,3 @@
+import"./chunk-B2MOJN65.js";var u=()=>{importScripts(`${self.location.origin}/advent-of-code/workers/message-manager.js`);function e(n){return n.filter(s=>{let r=Math.max(...s);return r<s.reduce((t,a)=>t+a)-r}).length}function o(n){let s=n.split(`
+`).map(r=>[r.substring(0,5),r.substring(5,10),r.substring(10)].map(t=>parseInt(t.trim(),10)));return e(s)}function i(n){let s=n.split(`
+`).map(t=>[t.substring(0,5),t.substring(5,10),t.substring(10)].map(a=>parseInt(a.trim(),10))).flat(),r=[];for(let t=0;t<s.length;t=t+(t%9===2?7:1))r.push([s[t],s[t+3],s[t+6]]);return e(r)}(void 0).onmessage=n=>calculate(o,i,n.data)};export{u as solver};
