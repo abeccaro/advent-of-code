@@ -12,5 +12,5 @@ import { problems } from '../shared/data/problems';
 })
 export class ProblemListComponent {
     readonly problems = problems;
-    readonly years = Object.keys(problems);
+    readonly years = Object.keys(problems).reverse();
 }

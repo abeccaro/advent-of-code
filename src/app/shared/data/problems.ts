@@ -103,4 +103,10 @@ export const problems: Record<string, Problem[]> = {
             name: 'Let it snow',
         },
     ],
+    2016: [
+        {
+            day: 1,
+            name: 'No Time for a Taxicab',
+        },
+    ],
 };
