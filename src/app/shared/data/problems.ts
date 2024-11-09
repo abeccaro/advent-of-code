@@ -120,5 +120,9 @@ export const problems: Record<string, Problem[]> = {
             day: 4,
             name: 'Security Through Obscurity',
         },
+        {
+            day: 5,
+            name: 'How About a Nice Game of Chess?',
+        },
     ],
 };
