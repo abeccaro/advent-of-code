@@ -128,5 +128,9 @@ export const problems: Record<string, Problem[]> = {
             day: 6,
             name: 'Signals and Noise',
         },
+        {
+            day: 7,
+            name: 'Internet Protocol Version 7',
+        },
     ],
 };
