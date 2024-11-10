@@ -11,10 +11,10 @@
 
     @if (output1.value !== '') {
         <h2>Part 1 solution</h2>
-        <input [formControl]="output1" [readonly]="true" type="text" />
+        <textarea [formControl]="output1" [readonly]="true" [rows]="output1Rows"></textarea>
         @if (output2.value !== '') {
             <h2>Part 2 solution</h2>
-            <input [formControl]="output2" [readonly]="true" type="text" />
+            <textarea [formControl]="output2" [readonly]="true" [rows]="output2Rows"></textarea>
         }
     }
 

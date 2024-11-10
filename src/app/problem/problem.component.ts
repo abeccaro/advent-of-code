@@ -21,6 +21,8 @@ export class ProblemComponent implements OnDestroy, OnInit {
     input = new FormControl<string>('', { nonNullable: true });
     output1 = new FormControl<string | number>('', { nonNullable: true });
     output2 = new FormControl<string | number>('', { nonNullable: true });
+    output1Rows = 1;
+    output2Rows = 1;
     calculating = signal(false);
 
     private worker?: Worker;
@@ -61,9 +63,11 @@ export class ProblemComponent implements OnDestroy, OnInit {
 
         this.worker.onmessage = data => {
             if (data.data.part1 !== undefined) {
+                this.output1Rows = typeof data.data.part1 === 'string' ? (data.data.part1.match(/\n/g) || []).length + 1 : 1;
                 this.output1.setValue(data.data.part1);
                 this.cdr.markForCheck();
             } else if (data.data.part2 !== undefined) {
+                this.output2Rows = typeof data.data.part2 === 'string' ? (data.data.part2.match(/\n/g) || []).length + 1 : 1;
                 this.output2.setValue(data.data.part2);
                 this.calculating.set(false);
             }

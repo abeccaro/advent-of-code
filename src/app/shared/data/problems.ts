@@ -132,5 +132,9 @@ export const problems: Record<string, Problem[]> = {
             day: 7,
             name: 'Internet Protocol Version 7',
         },
+        {
+            day: 8,
+            name: 'Two-Factor Authentication',
+        },
     ],
 };
