@@ -136,5 +136,9 @@ export const problems: Record<string, Problem[]> = {
             day: 8,
             name: 'Two-Factor Authentication',
         },
+        {
+            day: 9,
+            name: 'Explosives in Cyberspace',
+        },
     ],
 };
